@@ -90,11 +90,12 @@ router.post('/login', (req, res) => {
     // expects {username: 'lernantino', password: 'password1234'}
     User.findOne({
         where: {
-            username: req.body.username
+            username: req.body.username,
         }
     }).then(dbUserData => {
+        console.log(dbUserData, "here");
         if (!dbUserData) {
-            res.status(400).json({ message: 'No user with that username!'});
+            res.status(400).json({ message: 'Incorrect credentials 1'});
             return;
         }
         // res.json({ user: dbUserData});
@@ -102,7 +103,8 @@ router.post('/login', (req, res) => {
         const validPassword = dbUserData.checkPassword(req.body.password);
 
         if (!validPassword) {
-            res.status(400).json({ message: 'Incorrect password!' });
+            console.log(req.body.password);
+            res.status(400).json({ message: 'Incorrect credentials 2' });
             return;
         }
         req.session.save(() => {
