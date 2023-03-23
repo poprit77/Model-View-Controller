@@ -26,7 +26,6 @@ router.get('/', (req, res) => {
       ]
     })
       .then(PostData => {
-        // pass a single post object into the homepage template
         const posts = PostData.map(post => post.get({ plain: true }));
         res.render('homepage', { posts, loggedIn: req.session.loggedIn });
       })
@@ -38,7 +37,6 @@ router.get('/', (req, res) => {
 
 
 
-// redirecting users to homepage once they log in
 router.get('/login', (req, res) => {
     if(req.session.loggedIn) {
         res.redirect('/dashboard');
@@ -47,12 +45,10 @@ router.get('/login', (req, res) => {
     res.render('login');
 });
 
-// redirecting users to sign in page once they sign up
 router.get('/signup', (req, res) => {
     res.render('signup');
 });
 
-//rendering one post to the single-post page
 router.get('/post/:id', (req, res) => {
     Post.findOne({
       where: {
@@ -85,10 +81,8 @@ router.get('/post/:id', (req, res) => {
           return;
         }
   
-        // serialize the data
         const post = dbPostData.get({ plain: true });
   
-        // pass data to template
         console.log(post);
         res.render('onePost', { post, loggedIn: req.session.loggedIn});
 
@@ -100,7 +94,6 @@ router.get('/post/:id', (req, res) => {
       });
   });
 
-// redirecting users to see all their posts with comments
 router.get('/posts-comments', (req, res) => {
     Post.findOne({
         where: {
@@ -133,10 +126,8 @@ router.get('/posts-comments', (req, res) => {
             return;
           }
     
-          // serialize the data
           const post = dbPostData.get({ plain: true });
     
-          // pass data to template
           res.render('posts-comments', { post, loggedIn: req.session.loggedIn});
         })
         .catch(err => {
