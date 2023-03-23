@@ -41,7 +41,7 @@ router.get('/', (req, res) => {
 // redirecting users to homepage once they log in
 router.get('/login', (req, res) => {
     if(req.session.loggedIn) {
-        res.redirect('/');
+        res.redirect('/dashboard');
         return; 
     }
     res.render('login');

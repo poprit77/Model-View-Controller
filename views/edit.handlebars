@@ -1,14 +1,18 @@
-<div class="text-center">
-  <h2>{{name}}</h2>
-  <p>{{{get_emoji}}}</p>
-  <p>{{description}}</p>
-  <p>Created by {{user.name}} on {{format_date date_created}}</p>
-  <p>
-    <span for="img" aria-label="money">💲</span>
-    <span class="dollar-amount">{{format_amount needed_funding}}</span>
-    needed
-  </p>
-  <p>
-    <button class="btn btn-primary">Fund this Project!</button>
-  </p>
+<div class="card">
+    <h3 class="card-header">Edit Post</h3>
+    <form class="card-body edit-post-form">
+        <label for="post-title" class="form-label">Title</label>
+        <input name="post-title" type="text" value="{{post.title}}" class="form-input" />
+        <label class="form-label" for="content">Content</label>
+        <input name="content" type="text" value="{{post.content}}" class="form-input" />
+
+        <div class="form-button-layout">
+        <button type="submit" class="btn">Update Post</button>
+        <button type="button" class="delete-post-btn btn-outline">Delete Post</button>
+        </div>
+    </form>
 </div>
+
+
+<script src="/js/edit.js"></script>
+<script src="/js/delete.js"></script>
