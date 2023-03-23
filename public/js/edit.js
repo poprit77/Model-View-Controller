@@ -30,4 +30,4 @@ async function editFormHandler(event) {
 
 }
 
-document.querySelector('.edit-form').addEventListener('submit', editFormHandler);
+document.querySelector('#edit-delete').addEventListener('submit', editFormHandler);

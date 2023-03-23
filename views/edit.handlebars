@@ -1,6 +1,6 @@
 <div class="card">
     <h3 class="card-header">Edit Post</h3>
-    <form class="card-body edit-post-form">
+    <form class="card-body edit-post-form" id="edit-delete">
         <label for="post-title" class="form-label">Title</label>
         <input name="post-title" type="text" value="{{post.title}}" class="form-input" />
         <label class="form-label" for="content">Content</label>
@@ -8,7 +8,7 @@
 
         <div class="form-button-layout">
         <button type="submit" class="btn">Update Post</button>
-        <button type="button" class="delete-post-btn btn-outline">Delete Post</button>
+        <button type="submit" id="delete" class="delete-post-btn btn-outline">Delete Post</button>
         </div>
     </form>
 </div>
