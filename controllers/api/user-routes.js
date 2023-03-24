@@ -86,6 +86,7 @@ router.post('/login', (req, res) => {
     }).then(DATA => {
         console.log(req.body.username, "here");
         if (!DATA) {
+            console.log(req.body.username, "here");
             console.log(DATA,"here 2");
             res.status(400).json({ message: 'Incorrect credentials 1'});
             return;
