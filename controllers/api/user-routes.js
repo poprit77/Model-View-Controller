@@ -89,10 +89,13 @@ router.post('/login', (req, res) => {
             res.status(400).json({ message: 'Incorrect credentials 1'});
             return;
         }
+
+
        
         const validPassword = dbUserData.checkPassword(req.body.password);
 
         if (!validPassword) {
+            console.log(validPassword);
             console.log(req.body.password);
             res.status(400).json({ message: 'Incorrect credentials 2' });
             return;
