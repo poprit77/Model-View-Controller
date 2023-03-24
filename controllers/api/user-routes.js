@@ -83,16 +83,17 @@ router.post('/login', (req, res) => {
         where: {
             username: req.body.username,
         }
-    }).then(dbUserData => {
+    }).then(DATA => {
         console.log(req.body.username, "here");
-        if (!req.body.username) {
+        if (!DATA) {
+            console.log(DATA,"here 2");
             res.status(400).json({ message: 'Incorrect credentials 1'});
             return;
         }
 
 
        
-        const validPassword = dbUserData.checkPassword(req.body.password);
+        const validPassword = DATA.checkPassword(req.body.password);
 
         if (!validPassword) {
             console.log(req.body.password, "password");
@@ -100,11 +101,11 @@ router.post('/login', (req, res) => {
             return;
         }
         req.session.save(() => {
-            req.session.user_id = dbUserData.id;
-            req.session.username = dbUserData.username;
+            req.session.user_id = DATA.id;
+            req.session.username = DATA.username;
             req.session.loggedIn = true;
       
-            res.json({ user: dbUserData, message: 'You are now logged in!' });
+            res.json({ user: DATA, message: 'You are now logged in!' });
         });
     })
     .catch(err => {
