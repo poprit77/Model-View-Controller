@@ -4,6 +4,8 @@
   
   
   ## Description 
+
+  [Deployed site](https://tech-blog-pa.herokuapp.com/post/7)
   
   *The what, why, and how:* 
   
@@ -24,6 +26,7 @@
   ## Usage 
   
   *Instructions and examples for use:*
+  please first sign up on heroku 
   
   This is a exaple program
   
