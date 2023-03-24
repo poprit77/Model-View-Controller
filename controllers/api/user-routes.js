@@ -87,7 +87,7 @@ console.log(userData, "here")
     console.log(userData, "here2")
     console.log(req.body.password, "herep")
 
-    const validPassword = await checkPassword(req.body.password);
+    const validPassword = await userData.checkPassword(req.body.password);
     console.log(userData, "here3")
 
     if (!validPassword) {
