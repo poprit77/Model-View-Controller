@@ -85,7 +85,7 @@ router.post('/login', (req, res) => {
         }
     }).then(dbUserData => {
         console.log(req.body.username, "here");
-        if (!dbUserData) {
+        if (!req.body.username) {
             res.status(400).json({ message: 'Incorrect credentials 1'});
             return;
         }
